@@ -47,7 +47,7 @@ body {
 .mem-image {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 1s linear, opacity 0.5s linear;
+  transition: visibility 1s linear, opacity 0.7s linear;
   height: 0;
 }
 
