@@ -30,7 +30,6 @@ body {
 .mem-label {
   display: flex;
   flex-direction: column;
-  transition: 0.3s ease-in-out;
 }
 
 .mem-input {
@@ -45,18 +44,20 @@ body {
   padding: 0.7em 0em;
 }
 
-
 .mem-image {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 1s linear, opacity 0.5s linear;
   height: 0;
-  max-width: 80%;
-  overflow: hidden;
-  transition: 0.7s;
 }
 
 .mem-input:checked+.mem-label>.mem-image {
-  margin: 0 auto;
+  visibility: visible;
+  opacity: 1;
   height: auto;
-  padding-bottom: 0.9em;
+  max-width: 90%;
+  margin: 0 auto;
+  padding-bottom: 1rem;
 }
 
 
@@ -153,6 +154,7 @@ body {
   }
 }
 
+
 @media (min-width: 1920px) {
   .mem-accordion {
     max-width: 40%;
@@ -167,5 +169,69 @@ body {
   }
 }
 
+@media (hover: none) {
+  .mem-title-icon {
+    display: block;
+    transition: 0.7s;
+    width: 1em;
+    height: 1em;
+    background: no-repeat center url("assets/add.svg");
+  }
 
+  .mem-input:checked+.mem-label>.mem-title-block>.mem-title-icon {
+    display: block;
+    transform: rotate(45deg);
+    transition: 0.7s;
+  }
+}
 
+@media (hover: hover) {
+  .mem-label {
+    cursor: pointer;
+    transition: 1s;
+  }
+
+  .mem-accordion:hover .mem-title-icon {
+    transition: 0.5s;
+    display: block;
+    width: 1em;
+    height: 1em;
+    background: no-repeat center url("assets/add.svg");
+    cursor: pointer;
+  }
+  .mem-input:checked:active +.mem-label>.mem-title-block, 
+  .mem-input:active+.mem-label>.mem-title-block,
+  .mem-title-block {
+    color:#1c1cb4;
+  }
+  
+  .mem-input:active+.mem-label>.mem-title-block > .mem-title-icon {
+    color:#1c1cb4;
+    transition: 0s;
+    background: no-repeat center url("assets/blue_add.svg");
+  }
+
+  .mem-accordion:hover .mem-title-block {
+    color: black;
+  }
+
+  .mem-input:checked+.mem-label>.mem-title-block>.mem-title-icon,
+  .mem-label:hover .mem-title-icon {
+    transform: rotate(45deg);
+    transition: 0.7s;
+  }
+
+  .mem-input:checked+.mem-label>.mem-title-block,
+  .mem-label:hover .mem-title-block {
+    color: black;
+  }
+
+  .mem-input:hover+.mem-label>.mem-image {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+    max-width: 90%;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+  }
+}
