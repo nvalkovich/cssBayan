@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+}
+
+body{
+  background-color:#F0F8FF;
+  font-family: sans-serif;
+  color: black;
+}
+
+.mem-accordion {
+  max-width: 85%;
+  margin: 2em auto;
+  overflow: hidden;
+}
+
+.mem-accordion-title {
+  font-size: calc(0.9rem + 2vw);
+  font-weight: 800;
+  margin: 0em;
+  padding-bottom: 0.5em;
+}
+
+.mem-item {
+  border-top: 0.09rem solid #B0C4DE;
+  font-size: calc(0.4rem + 2vw);
+  font-weight: 700;
+}
+
+.mem-label {
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s ease-in-out;
+}
+
+.mem-input {
+  display: none;
+}
+
+.mem-title-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6em 0em;
+}
+
+.mem-title-icon {
+  display: block;
+  transition: 0.7s;
+  width: 1em;
+  height: 1em;
+  background: no-repeat center url("assets/add.svg");
+}
+
+.mem-image {
+  height: 0;
+  max-width: 90%;
+	overflow: hidden;
+	transition: 0.7s;
+}
+
+.mem-input:checked + .mem-label >.mem-image {
+  margin: 0 auto;
+  height: auto;
+	padding-bottom: 0.7em;
+}
+
+
+.mem-input:checked + .mem-label > .mem-title-block > .mem-title-icon {
+  display: block;
+  transform: rotate(45deg);
+  transition: 0.3s;
+}
